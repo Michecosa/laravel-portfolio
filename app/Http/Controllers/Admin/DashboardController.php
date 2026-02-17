@@ -11,10 +11,12 @@ class DashboardController extends Controller
     public function index() {
         $user = Auth::user();
 
-        return $user->id;
+        return view('admin.dashboard', compact('user'));
     } 
 
     public function profile() {
-        return "Pagina profile Backoffice";
-    } 
+        $user = Auth::user();
+
+        return view('admin.profile', compact('user'));
+    }
 }
