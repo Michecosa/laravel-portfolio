@@ -4,6 +4,7 @@
 @include('components.hero')
 @include('components.about')
 @include('components.skills')
+@include('components.projects')
 @include('components.contact')
 
 @endsection

@@ -48,3 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const projectModal = document.getElementById('projectModal');
+    
+    projectModal.addEventListener('show.bs.modal', function (event) {
+        // Il bottone che ha attivato il modale
+        const button = event.relatedTarget;
+        
+        // Estraggo le info dagli attributi data-*
+        const title = button.getAttribute('data-bs-title');
+        const description = button.getAttribute('data-bs-description');
+        const image = button.getAttribute('data-bs-image');
+        const demo = button.getAttribute('data-bs-demo');
+
+        // Popolp i campi del modale
+        projectModal.querySelector('#modalTitle').textContent = title;
+        projectModal.querySelector('#modalDescription').textContent = description;
+        projectModal.querySelector('#modalImage').src = image;
+        projectModal.querySelector('#modalDemoLink').href = demo;
+    });
+});

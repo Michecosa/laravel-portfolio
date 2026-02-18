@@ -286,6 +286,71 @@ header#main-header {
     display: flex;
 }
 
+
+// Sezione Projects
+.project-card {
+    border: 1px solid rgba(0,0,0,0.05);
+    
+    .project-image-wrapper {
+        height: 200px;
+        
+        .project-img {
+            transition: transform 0.5s ease;
+        }
+    }
+
+    .project-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba($slate-900, 0.8), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .btn-project-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
+
+    // Hover Effects
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+
+        .project-img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            opacity: 1;
+        }
+
+        .project-title-hover {
+            color: $cyan-500;
+        }
+    }
+}
+
+.project-title-hover {
+    transition: color 0.3s ease;
+}
+
+// Badge customization per sembrare Tailwind
+.badge.bg-slate-100 {
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
 // Sezione Contact
 .contact-icon-box {
     width: 48px;

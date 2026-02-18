@@ -3,11 +3,13 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Metadata\Group;
 
 Route::get('/', function () {
-    return view('welcome');
+    $projects = Project::where('is_completed', true)->latest()->get();
+    return view('welcome', compact('projects'));
 });
 
 Route::get('/dashboard', function () {
