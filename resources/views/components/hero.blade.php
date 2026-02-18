@@ -6,11 +6,11 @@
             <div class="col-lg-10 text-center">
                 
                 <div class="hero-badge inline-block mb-4 px-4 py-2 rounded-pill animate-fade-in">
-                    Available for opportunities
+                    Junior Full Stack Web Developer
                 </div>
 
                 <h1 class="display-1 fw-bold mb-4 bg-gradient-text animate-fade-in-up">
-                    Web Developer
+                    Michela Della Gatta
                 </h1>
 
                 <p class="fs-3 mb-5 animate-fade-in-up-delay">

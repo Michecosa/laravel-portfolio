@@ -54,7 +54,7 @@
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex align-items-stretch">
                 @foreach($skills as $skill)
-                <div class="col d-flex"> <div class="skill-card w-100 h-100 bg-white rounded-4 p-4 p-xl-5 shadow-sm transition-all d-flex flex-column">
+                <div class="col d-flex"> <div class="skill-card soft-transition w-100 h-100 bg-white rounded-4 p-4 p-xl-5 shadow-sm transition-all d-flex flex-column">
                         <div class="d-flex align-items-center gap-3 mb-4">
                             <div class="skill-icon-container {{ $skill['color'] }} rounded-3 p-2 text-white d-flex align-items-center justify-content-center">
                                 {!! $skill['icon'] !!}

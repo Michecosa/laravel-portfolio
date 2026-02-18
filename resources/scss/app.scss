@@ -8,6 +8,10 @@ $purple-500: #9411ff;
 $purple-600: #5d08b2d0;
 $transition-base: all 0.3s ease;
 
+.soft-transition {
+    transition: $transition-base;
+}
+
 header#main-header {
     transition: $transition-base;
     
