@@ -4,7 +4,7 @@
             
             <div class="text-center mb-5 pb-4">
                 <h2 class="display-5 fw-bold text-slate-900 mb-3">About Me</h2>
-                <div class="title-underline bg-cyan-500 mx-auto rounded-pill"></div>
+                <div class="title-underline mx-auto rounded-pill"></div>
             </div>
 
             <div class="row g-5 align-items-center">
@@ -32,7 +32,7 @@
                     <div class="d-flex flex-column gap-4">
                         
                         <div class="about-feature-card d-flex gap-4 p-4 rounded-4 shadow-sm-hover transition-all">
-                            <div class="feature-icon-box bg-cyan-500 text-white rounded-3 p-3 flex-shrink-0">
+                            <div class="feature-icon-box btn-purple text-white rounded-3 p-3 flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
                             </div>
                             <div>
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="about-feature-card d-flex gap-4 p-4 rounded-4 shadow-sm-hover transition-all">
-                            <div class="feature-icon-box bg-pink-500 text-white rounded-3 p-3 flex-shrink-0">
+                            <div class="feature-icon-box btn-purple text-white rounded-3 p-3 flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none" >
                                 <path d="M8 10.5C8 11.3284 7.32843 12 6.5 12C5.67157 12 5 11.3284 5 10.5C5 9.67157 5.67157 9 6.5 9C7.32843 9 8 9.67157 8 10.5Z" fill="white"/>
                                 <path d="M10.5 8C11.3284 8 12 7.32843 12 6.5C12 5.67157 11.3284 5 10.5 5C9.67157 5 9 5.67157 9 6.5C9 7.32843 9.67157 8 10.5 8Z" fill="white"/>
@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="about-feature-card d-flex gap-4 p-4 rounded-4 shadow-sm-hover transition-all">
-                            <div class="feature-icon-box bg-lime-500 text-white rounded-3 p-3 flex-shrink-0">
+                            <div class="feature-icon-box btn-purple text-white rounded-3 p-3 flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
                                 <path d="M12 14.9998L9 11.9998M12 14.9998C13.3968 14.4685 14.7369 13.7985 16 12.9998M12 14.9998V19.9998C12 19.9998 15.03 19.4498 16 17.9998C17.08 16.3798 16 12.9998 16 12.9998M9 11.9998C9.53214 10.6192 10.2022 9.29582 11 8.04976C12.1652 6.18675 13.7876 4.65281 15.713 3.59385C17.6384 2.53489 19.8027 1.98613 22 1.99976C22 4.71976 21.22 9.49976 16 12.9998M9 11.9998H4C4 11.9998 4.55 8.96976 6 7.99976C7.62 6.91976 11 7.99976 11 7.99976M4.5 16.4998C3 17.7598 2.5 21.4998 2.5 21.4998C2.5 21.4998 6.24 20.9998 7.5 19.4998C8.21 18.6598 8.2 17.3698 7.41 16.5898C7.02131 16.2188 6.50929 16.0044 5.97223 15.9878C5.43516 15.9712 4.91088 16.1535 4.5 16.4998Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>

@@ -102,6 +102,7 @@ $slate-400: #94a3b8;
     background-color: $slate-900;
 }
 
+.text-slate-900 { color: $slate-900; }
 .text-slate-400 { color: $slate-400; }
 .text-slate-500 { color: $slate-500; }
 
@@ -281,14 +282,8 @@ $lime-500: #afe123;
     border: 1px solid transparent;
     cursor: default;
 
-    .bg-cyan-500 {
-        background-color: $cyan-500;
-    }
-    .bg-pink-500 {
-        background-color: $pink-500;
-    }
-    .bg-lime-500 {
-        background-color: $lime-500;
+    .bg-icon-box {
+        background: radial-gradient(circle at center, $slate-600 0%, $slate-900 100%);
     }
 
     .feature-icon-box {
@@ -374,4 +369,66 @@ $yellow-500: #eed61f;
 // Allineamento altezza righe per card con contenuti diversi
 .row-cols-lg-3 .col {
     display: flex;
+}
+
+
+
+
+
+
+
+
+// Variabili
+$cyan-500: #06b6d4;
+$cyan-600: #0891b2;
+$slate-900: #0f172a;
+$slate-600: #475569;
+$slate-300: #cbd5e1;
+
+.contact-icon-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.contact-link {
+    transition: color 0.3s ease;
+    &:hover {
+        color: $cyan-500 !important;
+    }
+}
+
+// Custom Form Styling
+.custom-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid $slate-300;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+        border-color: $cyan-500;
+        outline: none;
+    }
+
+    &::placeholder {
+        color: #94a3b8;
+    }
+}
+
+textarea.custom-input {
+    resize: none;
+}
+
+// Utility per tracking-wider
+.tracking-wider {
+    letter-spacing: 0.05em;
 }
