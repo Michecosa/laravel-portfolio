@@ -1,29 +1,52 @@
 @import '~bootstrap/scss/bootstrap';
 
+$transition-base: all 0.3s ease;
+$purple-400: #c59fff;
+$purple-500: #9411ff;
+$purple-600: #5d08b2d0;
+$slate-50: #f8fafc;
+$slate-100: #f1f5f9;
+$slate-200: #e2e8f0;
+$slate-300: #cbd5e1;
+$slate-400: #94a3b8;
+$slate-500: #6e648b;
+$slate-600: #504769;
+$slate-700: #3c3355;
+$slate-800: #201e3b;
+$slate-900: #140f2a;
+$cyan-500: #1adac1;
+$pink-500: #f472b6;
+$lime-500: #afe123;
+$blue-500: #3b82f6;
+$emerald-500: #10b981;
+$orange-500: #f97316;
+$pink-500: #ec4899;
+$violet-500: #8b5cf6;
+$yellow-500: #eed61f;
+$cyan-600: #0891b2;
+
+// Stili Base
 html, body {
     min-width: 300px;
 }
-
-$purple-500: #9411ff;
-$purple-600: #5d08b2d0;
-$transition-base: all 0.3s ease;
 
 .soft-transition {
     transition: $transition-base;
 }
 
+// Header e Navigazione
 header#main-header {
     transition: $transition-base;
-    
+
     // Stato iniziale (Trasparente)
     &.bg-transparent {
         background-color: transparent;
 
         .logo-text, .custom-nav-link, .menu-icon { color: white; }
 
-        .logo-icon-container { 
-          background-color: rgba(255, 255, 255, 0.1); 
-          backdrop-filter: blur(4px); 
+        .logo-icon-container {
+          background-color: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(4px);
           color: white;
         }
     }
@@ -47,10 +70,10 @@ header#main-header {
 .custom-nav-link {
     position: relative;
 
-    &:hover { 
-      color: $purple-500 !important; 
+    &:hover {
+      color: $purple-500 !important;
     }
-    
+
     &::after {
         content: '';
         position: absolute;
@@ -64,7 +87,7 @@ header#main-header {
     &:hover::after { width: 100%; }
 }
 
-// Bottone Custom
+// Bottoni
 .btn-purple {
     background-color: $purple-500;
     color: white;
@@ -87,7 +110,6 @@ header#main-header {
 
 // Fix per mobile collapse
 @media (max-width: 767.98px) {
-
     .navbar-collapse {
         border-top: 1px solid #e2e8f0;
         margin-top: 1.5rem;
@@ -95,13 +117,7 @@ header#main-header {
     }
 }
 
-
-
 // Palette Slate
-$slate-900: #140f2a;
-$slate-500: #6e648b;
-$slate-400: #94a3b8;
-
 .bg-slate-900 {
     background-color: $slate-900;
 }
@@ -110,52 +126,7 @@ $slate-400: #94a3b8;
 .text-slate-400 { color: $slate-400; }
 .text-slate-500 { color: $slate-500; }
 
-.footer {
-    // Icone Social Glassmorphism
-    .social-icon-link {
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(4px);
-        border-radius: 50%;
-        color: white;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        text-decoration: none;
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.1);
-            color: white;
-        }
-    }
-
-    // Utilità per il max-width del footer interno
-    .max-w-6xl {
-        max-width: 72rem;
-    }
-}
-
-// Keyframes per l'animazione pulse
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-
-
-
-
-
-// Variabili Coerenti
-$purple-400: #c59fff;
-$slate-300: #cbd5e1;
-$slate-800: #201e3b;
-
+// Sezione Hero
 .hero-section {
     padding-block: 1rem;
     min-height: 100vh;
@@ -230,51 +201,7 @@ $slate-800: #201e3b;
     }
 }
 
-
-
-
-
-// --- ANIMAZIONI ---
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.animate-fade-in { animation: fadeIn 1s ease forwards; }
-.animate-fade-in-up { animation: fadeInUp 0.8s ease forwards; }
-.animate-fade-in-up-delay { animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
-.animate-fade-in-up-delay-2 { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
-.animate-fade-in-up-delay-3 { animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
-
-.animate-bounce {
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-    40% { transform: translate(-50%, -10px); }
-    60% { transform: translate(-50%, -5px); }
-}
-
-
-
-
-
-// Variabili
-$slate-50: #f8fafc;
-$slate-600: #504769;
-$slate-700: #3c3355;
-
-$cyan-500: #1adac1;
-$pink-500: #f472b6;
-$lime-500: #afe123;
-
+// Sezione About
 .title-underline {
     border-bottom: 4px solid #7c28db;
     width: 80px;
@@ -311,23 +238,7 @@ $lime-500: #afe123;
     }
 }
 
-
-
-
-
-
-
-// Variabili Colori
-$slate-50: #f8fafc;
-$slate-100: #f1f5f9;
-$slate-200: #e2e8f0;
-$blue-500: #3b82f6;
-$emerald-500: #10b981;
-$orange-500: #f97316;
-$pink-500: #ec4899;
-$violet-500: #8b5cf6;
-$yellow-500: #eed61f;
-
+// Sezione Skills
 .bg-blue-500 { background-color: $blue-500; }
 .bg-emerald-500 { background-color: $emerald-500; }
 .bg-orange-500 { background-color: $orange-500; }
@@ -337,14 +248,14 @@ $yellow-500: #eed61f;
 
 .skill-card {
     border: 1px solid transparent;
-    
+
     .skill-icon-container {
         width: 48px;
         height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         svg {
             width: 24px;
             height: 24px;
@@ -375,27 +286,14 @@ $yellow-500: #eed61f;
     display: flex;
 }
 
-
-
-
-
-
-
-
-// Variabili
-$cyan-500: #06b6d4;
-$cyan-600: #0891b2;
-$slate-900: #0f172a;
-$slate-600: #475569;
-$slate-300: #cbd5e1;
-
+// Sezione Contact
 .contact-icon-box {
     width: 48px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     svg {
         width: 22px;
         height: 22px;
@@ -432,7 +330,71 @@ textarea.custom-input {
     resize: none;
 }
 
-// Utility per tracking-wider
+// Footer
+.footer {
+    // Icone Social Glassmorphism
+    .social-icon-link {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+            color: white;
+        }
+    }
+
+    // Utilità per il max-width del footer interno
+    .max-w-6xl {
+        max-width: 72rem;
+    }
+}
+
+// Animazioni
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in { animation: fadeIn 1s ease forwards; }
+.animate-fade-in-up { animation: fadeInUp 0.8s ease forwards; }
+.animate-fade-in-up-delay { animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+.animate-fade-in-up-delay-2 { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+.animate-fade-in-up-delay-3 { animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+}
+
+// Keyframes per l'animazione pulse
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+// Utilities
 .tracking-wider {
     letter-spacing: 0.05em;
 }
