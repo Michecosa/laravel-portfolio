@@ -1,4 +1,4 @@
-<section id="about" class="my-5 py-5 bg-white" style="height: 100vh">
+<section id="about" class="my-5 py-5 bg-white" style="min-height: 100vh">
     <div class="container py-lg-5 px-4">
         <div class="max-w-6xl mx-auto">
             

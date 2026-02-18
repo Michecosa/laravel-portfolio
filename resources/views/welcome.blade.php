@@ -3,5 +3,6 @@
 
 @include('components.hero')
 @include('components.about')
+@include('components.skills')
 
 @endsection
