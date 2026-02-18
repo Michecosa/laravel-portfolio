@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div id="app" class="d-flex flex-column bg-slate-900" style="min-height: 100vh">
+    <div id="app" class="d-flex flex-column" style="min-height: 100vh">
         @include('components.header')
         
         <main class="flex-grow-1">
