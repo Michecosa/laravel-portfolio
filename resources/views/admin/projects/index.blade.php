@@ -8,10 +8,10 @@
     </a>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
     @forelse($projects as $project)
     <div class="col">
-        <div class="card h-100 border-0 shadow-sm overflow-hidden transition-all">
+        <div class="card h-100 w-100 border-0 shadow-sm overflow-hidden transition-all">
             <div class="position-relative">
                 <img src="{{ $project->cover_image ?? 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png' }}" 
                      class="card-img-top object-fit-cover" 
@@ -42,14 +42,35 @@
                               <i class="bi bi-pencil"></i>
                           </a>
                         </div>
-                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST" onsubmit="return confirm('Sei sicuro?')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-light btn-sm text-danger">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </form>
+                        
+                        <button type="button" class="btn btn-light btn-sm text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $project->id }}">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                        
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal{{ $project->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $project->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pt-4 px-4">
+                    <h5 class="modal-title fw-bold text-danger" id="deleteModalLabel{{ $project->id }}">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Danger Zone
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4">
+                    <p class="text-muted mb-0">Are you sure you want to delete <strong>{{ $project->title }}</strong>? This action is permanent and cannot be undone.</p>
+                </div>
+                <div class="modal-footer border-0 pb-4 px-4">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                    <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit" class="btn btn-danger rounded-pill px-4">Delete Permanently</button>
+                    </form>
                 </div>
             </div>
         </div>

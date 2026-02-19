@@ -92,7 +92,7 @@
                 <strong>{{ Auth::user()?->name ?? 'Admin' }}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">Profilo</a></li>
+                <li><a class="dropdown-item" href="{{route("admin.profile")}}">Profilo</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form></li>
@@ -106,7 +106,7 @@
                 <div class="d-flex flex-column">
                     <span class="navbar-brand mb-0 h1 text-dark fw-bold">@yield('page_title', 'Overview')</span>
                     <small class="text-muted" style="font-size: 0.75rem;">
-                        <i class="bi bi-circle-fill text-lime me-1" style="font-size: 0.5rem;"></i> 
+                        <i class="bi bi-circle-fill text-success me-1" style="font-size: 0.5rem;"></i> 
                         System Ready — 
                         @auth
                             Welcome back, {{ Auth::user()->name }}

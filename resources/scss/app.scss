@@ -127,6 +127,9 @@ header#main-header {
 .text-slate-500 { color: $slate-500; }
 .text-purple-600 {color: $purple-600; }
 .text-lime {color: rgb(128, 255, 0)}
+.bg-success {background-color: rgb(101, 202, 0) !important;}
+.bg-success.bg-opacity-10 {background-color: rgba(101, 202, 0, 0.10) !important;}
+.text-success {color: rgb(101, 202, 0) !important;}
 
 // Sezione Hero
 .hero-section {

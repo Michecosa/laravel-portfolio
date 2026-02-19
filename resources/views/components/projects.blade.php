@@ -37,7 +37,7 @@
                         <div class="p-4">
                             <h3 class="h5 fw-bold text-slate-900 mb-3 project-title-hover">{{ $project->title }}</h3>
                             <p class="text-slate-600 mb-4 small leading-relaxed">
-                                {{ $project->description }}
+                                {{ Str::limit($project->description, 100) }}
                             </p>
                         </div>
                     </div>
