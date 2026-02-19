@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
+<div>
+<a href="{{route("projects.create")}}" class="btn btn-primary">Add new Project</a>
+</div>
+
   <table> {{-- Si ora le faccio diventare delle card un attimo --}}
     <thead>
       <tr>
