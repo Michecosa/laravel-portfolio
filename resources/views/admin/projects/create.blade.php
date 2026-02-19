@@ -17,7 +17,10 @@
     <label for="cover_image">Cover image (src)</label>
     <input type="text" name="cover_image" id="cover_image">
   </div>
-
+  <div class="form-check form-switch mb-3">
+    <input class="form-check-input" type="checkbox" role="switch" name="is_completed" id="is_completed" value="1" {{ old('is_completed') ? 'checked' : '' }}>
+    <label class="form-check-label" for="is_completed">Progetto Completato</label>
+  </div>
   <button type="submit">Save</button>
 </form>
 @endsection
