@@ -35,6 +35,23 @@
                                       placeholder="Describe your work...">{{ old('description', $project->description) }}</textarea>
                         </div>
 
+                        <div class="mb-4">
+                            <label for="category_id" class="form-label fw-semibold text-muted small text-uppercase">Project Category</label>
+                            <select name="category_id" id="category_id" 
+                                    class="form-select form-select-lg bg-light border-0 rounded-3 @error('category_id') is-invalid @enderror">
+                                <option value="">No Category</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" 
+                                        {{ old('category_id', $project->category_id) == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <div class="row">
                             <div class="col-md-8 mb-4">
                                 <label for="cover_image" class="form-label fw-semibold text-muted small text-uppercase">Cover Image URL</label>
@@ -74,16 +91,32 @@
 </div>
 
 <style>
-    .form-control:focus {
+    .form-control:focus, 
+    .form-select:focus {
         background-color: #fff !important;
         border-color: #6f42c1 !important;
         box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.15);
+        outline: 0;
     }
-    
+
+    .form-select {
+        cursor: pointer;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    .form-select-lg {
+        font-size: 1rem;
+    }
+
     .custom-switch {
         width: 3rem !important;
         height: 1.5rem !important;
         cursor: pointer;
+    }
+
+    .is-invalid {
+        border: 1px solid #dc3545 !important;
+        background-color: #fff !important;
     }
 </style>
 @endsection

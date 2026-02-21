@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.projects.create");
+        $categories = Category::all();
+        return view("admin.projects.create", compact('categories'));
     }
 
     /**
@@ -38,6 +40,7 @@ class ProjectController extends Controller
         $newProject->title = $data['title'];
         $newProject->description = $data['description'];
         $newProject->cover_image = $data['cover_image'];
+        $newProject->category_id = $data['category_id'];
         $newProject->is_completed = $request->has('is_completed');
         # dd($newProject);
 
@@ -53,6 +56,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        # dd($project->category);
         return view('admin.projects.show', compact('project'));
     }
 
@@ -61,8 +65,9 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
+        $categories = Category::all();
         $project = Project::find($id);
-        return view("admin.projects.edit", compact("project"));
+        return view("admin.projects.edit", compact("project", "categories"));
     }
 
     /**
@@ -76,6 +81,7 @@ class ProjectController extends Controller
         $project->title = $data['title'];
         $project->description = $data['description'];
         $project->cover_image = $data['cover_image'];
+        $project->category_id = $data['category_id'];
         $project->is_completed = $request->has('is_completed');
 
         $project->update();
