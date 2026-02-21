@@ -14,7 +14,7 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 @forelse($projects as $project)
                 <div class="col">
-                    <div class="project-card soft-transition h-100 bg-white rounded-4 overflow-hidden shadow-sm transition-all">
+                    <div class="project-card soft-transition w-100 h-100 bg-white rounded-4 overflow-hidden shadow-sm transition-all">
                         <div class="project-image-wrapper position-relative overflow-hidden">
                             <img src="{{ $project->cover_image ?? 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png?20210521171500' }}" 
                                  alt="{{ $project->title }}" 

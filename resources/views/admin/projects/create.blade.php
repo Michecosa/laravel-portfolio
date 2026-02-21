@@ -34,7 +34,7 @@
                             <label for="description" class="form-label fw-semibold text-muted small text-uppercase">Description</label>
                             <textarea name="description" id="description" rows="6" 
                                       class="form-control bg-light border-0 rounded-3 @error('description') is-invalid @enderror" 
-                                      placeholder="Explain the project goals, technologies used... ">{{ old('description') }}</textarea>
+                                      placeholder="Explain the project goals, technologies used... " required>{{ old('description') }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -43,7 +43,8 @@
                         <div class="mb-4">
                             <label for="category_id" class="form-label fw-semibold text-muted small text-uppercase">Project Category</label>
                             <select name="category_id" id="category_id" 
-                                    class="form-select form-select-lg bg-light border-0 rounded-3 @error('category_id') is-invalid @enderror">
+                                    class="form-select form-select-lg bg-light border-0 rounded-3 @error('category_id') is-invalid @enderror"
+                                    required >
                                 <option value="" selected disabled>Select a category</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
@@ -59,7 +60,8 @@
                         <div class="mb-4">
                             <label for="type_id" class="form-label fw-semibold text-muted small text-uppercase">Project type</label>
                             <select name="type_id" id="type_id" 
-                                    class="form-select form-select-lg bg-light border-0 rounded-3 @error('type_id') is-invalid @enderror">
+                                    class="form-select form-select-lg bg-light border-0 rounded-3 @error('type_id') is-invalid @enderror"
+                                    required >
                                 <option value="" selected disabled>Select a type</option>
                                 @foreach($types as $type)
                                     <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
@@ -80,7 +82,7 @@
                                     <input type="text" name="cover_image" id="cover_image" 
                                            class="form-control bg-light border-0 @error('cover_image') is-invalid @enderror" 
                                            value="{{ old('cover_image') }}" 
-                                           placeholder="https://example.com/image.jpg">
+                                           placeholder="https://example.com/image.jpg" required>
                                 </div>
                                 @error('cover_image')
                                     <small class="text-danger mt-1 d-block">{{ $message }}</small>
