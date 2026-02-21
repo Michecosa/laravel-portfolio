@@ -56,6 +56,22 @@
                             @enderror
                         </div>
 
+                        <div class="mb-4">
+                            <label for="type_id" class="form-label fw-semibold text-muted small text-uppercase">Project type</label>
+                            <select name="type_id" id="type_id" 
+                                    class="form-select form-select-lg bg-light border-0 rounded-3 @error('type_id') is-invalid @enderror">
+                                <option value="" selected disabled>Select a type</option>
+                                @foreach($types as $type)
+                                    <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
+                                        {{ $type->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('type_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <div class="row">
                             <div class="col-md-8 mb-4">
                                 <label for="cover_image" class="form-label fw-semibold text-muted small text-uppercase">Cover Image URL</label>

@@ -14,7 +14,14 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $categories = ['RESPONSIVE','LARAVEL', 'PHP', 'REACT', 'E-COMMERCE', 'GAMES'];
+        $categories = [
+            'Responsive Design', 
+            'Laravel Framework', 
+            'Core PHP', 
+            'React JS', 
+            'E-Commerce', 
+            'Web Gaming'
+        ];
 
         foreach($categories as $category) {
             $newCategory = new Category();
