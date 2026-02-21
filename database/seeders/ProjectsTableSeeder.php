@@ -17,6 +17,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->title = $faker->sentence();
             $newProject->description = $faker->paragraph();
             $newProject->cover_image = 'https://picsum.photos/640/480?random=' . $faker->unique()->numberBetween(1, 1000);
+            $newProject->category_id = rand(1,6);
             $newProject->is_completed = $faker->boolean(80);
 
             $newProject->save();
