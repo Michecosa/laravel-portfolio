@@ -4,6 +4,7 @@
 @section('page_title', 'Add New Project')
 
 @section('content')
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -71,6 +72,31 @@
                             </select>
                             @error('type_id')
                                 <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-muted small text-uppercase d-block mb-3">Technologies</label>
+                            <div class="d-flex flex-wrap gap-3">
+                                @foreach($technologies as $technology)
+                                    <div class="form-check">
+                                        <input class="form-check-input" 
+                                            type="checkbox" 
+                                            name="technologies[]" 
+                                            value="{{ $technology->id }}" 
+                                            id="tech-{{ $technology->id }}"
+                                            {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="tech-{{ $technology->id }}">
+                                            <span class="badge rounded-pill" style="background-color: {{ $technology->color }}; color: white; padding: 0.5em 0.8em;">
+                                                {{ $technology->name }}
+                                            </span>
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
+                            @error('technologies')
+                                <div class="text-danger small mt-2">{{ $message }}</div>
                             @enderror
                         </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -24,9 +25,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $technologies = Technology::all();
         $categories = Category::all();
         $types = Type::all();
-        return view("admin.projects.create", compact('categories', 'types'));
+        return view("admin.projects.create", compact('categories', 'types', 'technologies'));
     }
 
     /**
@@ -49,6 +51,9 @@ class ProjectController extends Controller
 
         $newProject->save();
 
+        # IMPORTANTE: SEMPRE DOPO $newProject->save()
+        $newProject->technologies()->attach($data['technologies']);
+
         # ❌ return view("admin.projects.show", $newProject); 
 
         return redirect()->route("projects.show", $newProject->id);
@@ -59,7 +64,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        dd($project->technologies);
+        # dd($project->technologies);
         return view('admin.projects.show', compact('project'));
     }
 
