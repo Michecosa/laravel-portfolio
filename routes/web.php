@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Route;
 use PHPUnit\Metadata\Group;
 
 Route::get('/', function () {
-    $projects = Project::where('is_completed', true)->latest()->get();
-    return view('welcome', compact('projects'));
+    return redirect()->route('admin.index');
 });
 
 /*  
