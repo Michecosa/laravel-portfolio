@@ -73,10 +73,11 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
+        $technologies = Technology::all();
         $categories = Category::all();
         $types = Type::all();
         $project = Project::find($id);
-        return view("admin.projects.edit", compact("project", "categories", "types"));
+        return view("admin.projects.edit", compact("project", "categories", "types", "technologies"));
     }
 
     /**
@@ -96,6 +97,12 @@ class ProjectController extends Controller
 
         $project->update();
 
+        if (isset($data['technologies'])) {
+                $project->technologies()->sync($data['technologies']);
+        } else {
+            $project->technologies()->sync([]);
+        }
+
         return redirect()->route("projects.show", $project->id);
     }
 
@@ -104,6 +111,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        $project->technologies()->detach();
         $project->delete();
 
         return redirect()->route("projects.index");

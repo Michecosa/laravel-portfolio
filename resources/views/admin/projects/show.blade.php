@@ -28,14 +28,26 @@
                         <h2 class="fw-bold text-dark mb-1">{{ $project->title }}</h2>
                         <p class="text-muted">Last updated: {{ $project->updated_at->format('d/m/Y H:i') }}</p>
                         <div class="mb-3">
-                            <span class="badge rounded-pill bg-dark border border-dark px-3 py-2">
-                                <i class="fas fa-tag me-1"></i>
-                                {{ $project->category?->name ?? 'No Category' }}
-                            </span>
-                            <span class="badge rounded-pill text-dark border border-dark px-3 py-2">
-                                <i class="fas fa-tag me-1"></i>
+                            <span class="badge text-bg-light rounded-pill border px-3 py-2">
                                 {{ $project->type?->name ?? 'No Type' }}
                             </span>
+                            <span class="badge text-bg-light rounded-pill border px-3 py-2">
+                                {{ $project->category?->name ?? 'No Category' }}
+                            </span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="d-flex flex-wrap gap-2">
+                                @forelse($project->technologies as $technology)
+                                    <span class="badge rounded-pill" 
+                                        style="background-color: {{ $technology->color }}; color: white; padding: 0.6em 1em;">
+                                        <i class="bi bi-tag-fill me-1 small"></i>
+                                        {{ $technology->name }}
+                                    </span>
+                                @empty
+                                    <span class="text-muted small italic">No technologies specified</span>
+                                @endforelse
+                            </div>
                         </div>
                     </div>
                     
@@ -48,6 +60,7 @@
                         </button>
                     </div>
                 </div>
+                
 
                 <hr class="text-muted opacity-25">
 

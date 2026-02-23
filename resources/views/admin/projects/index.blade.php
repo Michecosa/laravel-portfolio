@@ -32,8 +32,10 @@
                 </div>
                 
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <a href="{{ route('projects.show', $project->id) }}" class="btn btn-outline-primary btn-sm px-3 rounded-pill">
-                        View Details
+                    <a href="{{ route('projects.show', $project->id) }}" 
+                    class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center rounded-circle" 
+                    style="width: 32px; height: 32px;">
+                        <i class="bi bi-search"></i>
                     </a>
                     
                     <div class="btn-group gap-1">
