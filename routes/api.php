@@ -12,3 +12,4 @@ Route::get('/user', function (Request $request) {
 
 # http://127.0.0.1:8000/api/projects
 Route::get('projects', [ProjectController::class, 'index']);
+Route::get('projects/{project}', [ProjectController::class, 'show']);
