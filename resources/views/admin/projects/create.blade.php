@@ -17,7 +17,7 @@
                         <h4 class="fw-bold mb-0">Project Details</h4>
                     </div>
 
-                    <form action="{{ route('projects.store') }}" method="POST">
+                    <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-4">
@@ -102,17 +102,18 @@
 
                         <div class="row">
                             <div class="col-md-8 mb-4">
-                                <label for="cover_image" class="form-label fw-semibold text-muted small text-uppercase">Cover Image URL</label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light border-0"><i class="bi bi-image"></i></span>
-                                    <input type="text" name="cover_image" id="cover_image" 
-                                           class="form-control bg-light border-0 @error('cover_image') is-invalid @enderror" 
-                                           value="{{ old('cover_image') }}" 
-                                           placeholder="https://example.com/image.jpg" required>
+                                <label class="form-label fw-semibold text-muted small text-uppercase">Cover Image</label>
+                                <div class="mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-0"><i class="bi bi-upload"></i></span>
+                                        <input type="file" name="cover_image" id="cover_image" 
+                                            class="form-control bg-light border-0 @error('cover_image') is-invalid @enderror">
+                                    </div>
+                                    <div class="form-text mt-1">Load file from your computer (jpg, png)</div>
+                                    @error('cover_image')
+                                        <small class="text-danger mt-1 d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
-                                @error('cover_image')
-                                    <small class="text-danger mt-1 d-block">{{ $message }}</small>
-                                @enderror
                             </div>
 
                             <div class="col-md-4 mb-4">

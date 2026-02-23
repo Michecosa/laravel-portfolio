@@ -13,10 +13,10 @@
     <div class="col">
         <div class="card h-100 w-100 border-0 shadow-sm overflow-hidden transition-all">
             <div class="position-relative">
-                <img src="{{ $project->cover_image ?? 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png' }}" 
-                     class="card-img-top object-fit-cover" 
-                     style="height: 200px;" 
-                     alt="{{ $project->title }}">
+                <img src="{{ str_starts_with($project->cover_image, 'http') ? $project->cover_image : asset('storage/' . $project->cover_image) }}" 
+                    class="card-img-top object-fit-cover" 
+                    style="height: 200px;" 
+                    alt="{{ $project->title }}">
                 
                 <span class="position-absolute top-0 end-0 m-3 badge rounded-pill {{ $project->is_completed ? 'bg-success' : 'bg-warning text-dark' }}">
                     {{ $project->status_label }}

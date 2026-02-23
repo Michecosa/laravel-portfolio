@@ -16,7 +16,7 @@
                         <h4 class="fw-bold mb-0">Project Details</h4>
                     </div>
 
-                    <form action="{{ route('projects.update', $project) }}" method="POST">
+                    <form action="{{ route('projects.update', $project) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -95,14 +95,26 @@
                         
                         <div class="row">
                             <div class="col-md-8 mb-4">
-                                <label for="cover_image" class="form-label fw-semibold text-muted small text-uppercase">Cover Image URL</label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light border-0"><i class="bi bi-link-45deg"></i></span>
-                                    <input type="text" name="cover_image" id="cover_image" 
-                                           class="form-control bg-light border-0" 
-                                           value="{{ old('cover_image', $project->cover_image) }}" 
-                                           placeholder="https://example.com/image.jpg">
+                                <label for="cover_image" class="form-label fw-semibold text-muted small text-uppercase">Project Cover Image</label>
+                                
+                                <div class="mb-3">
+                                    <p class="small text-muted mb-2">Current image:</p>
+                                    <img src="{{ str_starts_with($project->cover_image, 'http') ? $project->cover_image : asset('storage/' . $project->cover_image) }}" 
+                                        alt="Current cover" 
+                                        class="img-thumbnail" 
+                                        style="height: 100px;">
                                 </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="bi bi-upload"></i></span>
+                                    <input type="file" name="cover_image" id="cover_image" 
+                                        class="form-control bg-light border-0 @error('cover_image') is-invalid @enderror">
+                                </div>
+                                <div class="form-text mt-1">Leave empty to keep the current image.</div>
+                                
+                                @error('cover_image')
+                                    <small class="text-danger mt-1 d-block">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <div class="col-md-4 mb-4">

@@ -10,7 +10,9 @@ class ProjectController extends Controller
 {
     public function index() {
 
-        $projects = Project::with('type')->get();
+        $projects = Project::with('type')
+            ->latest('updated_at') 
+            ->get();
         
         return response()->json(
             [

@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -43,7 +44,10 @@ class ProjectController extends Controller
 
         $newProject->title = $data['title'];
         $newProject->description = $data['description'];
-        $newProject->cover_image = $data['cover_image'];
+        if(array_key_exists("cover_image", $data)) {
+            $img_path = Storage::putFile('projects', $data['cover_image']);
+            $newProject->cover_image = $img_path;
+        }
         $newProject->category_id = $data['category_id'];
         $newProject->type_id = $data['type_id'];
         $newProject->is_completed = $request->has('is_completed');
@@ -90,7 +94,17 @@ class ProjectController extends Controller
 
         $project->title = $data['title'];
         $project->description = $data['description'];
-        $project->cover_image = $data['cover_image'];
+
+        if ($request->hasFile('cover_image')) {
+            // Se esiste già un'immagine vecchia e non è un link URL, la cancello dal server
+            if ($project->cover_image && !str_starts_with($project->cover_image, 'http')) {
+                Storage::delete($project->cover_image);
+            }
+            // Salvo il nuovo file e aggiorno la colonna
+            $img_path = Storage::put('projects', $request->cover_image);
+            $project->cover_image = $img_path;
+        }
+
         $project->category_id = $data['category_id'];
         $project->type_id = $data['type_id'];
         $project->is_completed = $request->has('is_completed');
@@ -111,6 +125,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        // Così cancello anche l'immagine dallo storage se non è un URL
+        if ($project->cover_image && !str_starts_with($project->cover_image, 'http')) {
+            Storage::delete($project->cover_image);
+        }
         $project->technologies()->detach();
         $project->delete();
 

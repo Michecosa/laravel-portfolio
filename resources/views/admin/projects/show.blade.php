@@ -8,10 +8,10 @@
     <div class="row">
         <div class="col-lg-4 mb-4">
             <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-                <img src="{{ $project->cover_image ?? 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png' }}" 
-                     class="img-fluid w-100 object-fit-cover" 
-                     style="max-height: 300px;" 
-                     alt="{{ $project->title }}">
+            <img src="{{ str_starts_with($project->cover_image, 'http') ? $project->cover_image : asset('storage/' . $project->cover_image) }}" 
+                class="img-fluid w-100 object-fit-cover" 
+                style="max-height: 300px;" 
+                alt="{{ $project->title }}">
                 <div class="card-body text-center">
                     <span class="badge rounded-pill {{ $project->is_completed ? 'bg-success' : 'bg-warning text-dark' }} mb-3">
                         {{ $project->status_label }}
